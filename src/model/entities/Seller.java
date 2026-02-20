@@ -1,0 +1,142 @@
+package model.entities;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
+
+public class Seller {
+
+    private Integer id;
+    private String name;
+    private String email;
+    private LocalDate birthDate;
+    private Double baseSalary;
+
+    private Department department;
+
+    public Seller () {}
+
+    public Seller(Integer id, String name, String email, LocalDate birthDate, Double baseSalary, Department department) {
+
+        this.id = id;
+
+        this.name = name;
+
+        this.email = email;
+
+        this.birthDate = birthDate;
+
+        this.baseSalary = baseSalary;
+
+        this.department = department;
+
+    }
+
+    public Integer getId() {
+
+        return id;
+
+    }
+
+    public void setId(Integer id) {
+
+        this.id = id;
+
+    }
+
+    public String getName() {
+
+        return name;
+
+    }
+
+    public void setName(String name) {
+
+        this.name = name;
+
+    }
+
+    public String getEmail() {
+
+        return email;
+
+    }
+
+    public void setEmail(String email) {
+
+        this.email = email;
+
+    }
+
+    public LocalDate getBirthDate() {
+
+        return birthDate;
+
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+
+        this.birthDate = birthDate;
+
+    }
+
+    public Double getBaseSalary() {
+
+        return baseSalary;
+
+    }
+
+    public void setBaseSalary(Double baseSalary) {
+
+        this.baseSalary = baseSalary;
+
+    }
+
+    public Department getDepartment() {
+
+        return department;
+
+    }
+
+    public void setDepartment(Department department) {
+
+        this.department = department;
+
+    }
+
+    @Override
+    public boolean equals(Object object) {
+
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Seller seller = (Seller) object;
+
+        return Objects.equals(id, seller.id);
+
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hashCode(id);
+
+    }
+
+    @Override
+    public String toString() {
+
+        return getId()
+                + " | "
+                + getName()
+                + " | "
+                + getEmail()
+                + " | "
+                + getBirthDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                + " | "
+                + String.format("R$ %.2f",getBaseSalary())
+                + " | "
+                + getDepartment();
+
+    }
+
+}
